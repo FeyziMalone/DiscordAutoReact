@@ -13,6 +13,8 @@ HOW TO USE:
 # CONFIGURE
 EDIT content-script.js
 replace "REPLACETOKEN" with your discord auth token.
+replace "Closed by Bimmer" to "Closed by YOURNAME" - (You can change this to whatever the text in the message you are looking for)
+
 
 # HOW TO LOAD:
 
