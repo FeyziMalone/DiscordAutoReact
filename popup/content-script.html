@@ -1,0 +1,162 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Page</title>
+    <link rel="stylesheet" href="content-script.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      #outer-wrapper {
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 14px;
+      }
+
+      label {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      .onoffswitch {
+        position: relative;
+        width: 70px;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select: none;
+      }
+      .onoffswitch-checkbox {
+        display: none;
+      }
+      .onoffswitch-label {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid #999999;
+        border-radius: 5px;
+      }
+      .onoffswitch-inner {
+        display: block;
+        width: 200%;
+        margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+      }
+      .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block;
+        float: left;
+        width: 50%;
+        height: 25px;
+        padding: 0;
+        line-height: 25px;
+        font-size: 14px;
+        color: white;
+        font-family: Trebuchet, Arial, sans-serif;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+      .onoffswitch-inner:before {
+        content: "ON";
+        padding-left: 10px;
+        background-color: #4CAF50;
+        color: #FFFFFF;
+      }
+      .onoffswitch-inner:after {
+        content: "OFF";
+        padding-right: 10px;
+        background-color: #EEEEEE;
+        color: #999999;
+        text-align: right;
+      }
+      .onoffswitch-switch {
+        display: block;
+        width: 18px;
+        margin: 3.5px;
+        background: #FFFFFF;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 40px;
+        border: 2px solid #999999;
+        border-radius: 5px;
+        transition: all 0.3s ease-in 0s;
+      }
+      .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+      }
+      .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        float: right;
+        margin-right: 15px;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer-wrapper">
+      <label for="duration">Duration:</label>
+      <select id="duration">
+        <option value="30">30 Seconds</option>
+        <option value="60">1 Minute</option>
+        <option value="120">2 Minutes</option>
+      </select>
+      <label for="channel-id">Channel ID:</label>
+      <input type="text" id="channel-id">
+      <label for="emote-seconds">Emote:</label>
+      <input type="text" id="emote-seconds">
+      <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="status">
+        <label class="onoffswitch-label" for="status">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <button id="register">Update Config</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
+
