@@ -1,0 +1,45 @@
+{
+
+  "manifest_version": 2,
+  "name": "Auto Reacter",
+  "version": "1.2",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "AutoReactere@mozilla.org",
+      "strict_min_version": "59.0a1"
+    }
+  },
+
+  "description": "Auto Reacter.",
+  "icons": {
+    "48": "icons/if_source_code_103710.svg"
+  },
+
+  "permissions": [
+    "<all_urls>",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+     "32" : "icons/if_source_code_103710.svg"
+    },
+    "default_title": "Auto Reacter",
+    "default_popup": "popup/content-script.html",
+    "browser_style": true
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://discord.com/*"],
+      "js": ["jquery.min.js","twemoji.min.js","content-script.js"]
+    }
+  ]
+
+}
